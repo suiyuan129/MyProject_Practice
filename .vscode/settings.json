@@ -1,0 +1,36 @@
+{
+  "C_Cpp.default.cppStandard": "c++17",
+  "C_Cpp.default.intelliSenseMode": "gcc-x64",
+  "C_Cpp.default.compilerPath": "/usr/bin/g++",
+  "C_Cpp.default.debuggerPath": "/usr/bin/gdb",
+  "editor.formatOnSave": true,
+  "C_Cpp.clang_format_style": "Google",
+  "files.associations": {
+    "*.cpp": "cpp",
+    "*.h": "cpp",
+    "vector": "cpp",
+    "string": "cpp"
+  },
+  // 远程连接适配（保留）
+  "remote.autoForwardPorts": true,
+  "C_Cpp.remote.autoReconnect": true,
+  "terminal.integrated.env.linux": {
+    "LANG": "zh_CN.UTF-8"
+  },
+  // 调试体验优化（保留）
+  "debug.inlineValues": true,
+  "debug.toolBarLocation": "docked",
+  "files.autoSave": "afterDelay",
+  // 新增：多项目管理核心配置
+  "files.exclude": {
+    // 排除所有子项目的 build 目录（编译产物，避免资源管理器混乱）
+    "**/build": true,
+    // 排除可能的临时文件/隐藏目录（如 .git、.vscode 子目录）
+    "**/.git": true,
+    "**/.vscode": false // 保留根目录 .vscode（全局配置），子项目 .vscode 可按需排除
+  },
+  "search.exclude": {
+    // 搜索时忽略 build 目录（提高搜索效率，避免搜到编译产物）
+    "**/build": true
+  }
+}

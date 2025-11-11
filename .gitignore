@@ -1,0 +1,17 @@
+# 忽略所有 build 目录（编译产物）
+**/build/
+
+# 忽略 VSCode 配置中的临时文件（保留 .vscode 目录的配置文件，可选）
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+
+# 忽略 C++ 编译生成的可执行文件（如 a.out、main 等）
+*.out
+*.exe
+src/*[!cpp|!h|!hpp]  # 只保留源码文件，排除其他类型
+
+# 忽略系统临时文件
+.*.swp
+.DS_Store

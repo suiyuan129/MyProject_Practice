@@ -1,0 +1,42 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "cppbuild",
+            "label": "C/C++: g++ 远程编译",
+            "command": "/usr/bin/g++",
+            "args": [
+                "-g",
+                // 修正1：源文件路径（当前目录下的所有.cpp，不再加/src）
+                "${file}",
+                "-o",
+                // 修正2：输出路径（在当前目录的build下，而非src/build）
+                "${fileDirname}/build/${fileBasenameNoExtension}",
+                "-std=c++17",
+                "-Wall",
+                // 修正3：include路径（如果有头文件，指向当前目录的include）
+                "-I",
+                "${fileDirname}/include"
+            ],
+            "options": {
+                "cwd": "${fileDirname}" // 工作目录保持当前文件所在目录
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": "编译器: /usr/bin/g++",
+            "preLaunchTask": "mkdir build"
+        },
+        {
+            "label": "mkdir build",
+            // 修正4：创建build目录的路径（在当前目录下建build）
+            "command": "mkdir -p ${fileDirname}/build",
+            "type": "shell",
+            "problemMatcher": []
+        }
+    ]
+}
