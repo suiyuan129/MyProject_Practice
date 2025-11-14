@@ -1,16 +1,17 @@
-# 忽略所有 build 目录（编译产物）
+# 忽略所有 build 目录（编译产物，所有子项目通用）
 **/build/
 
-# 忽略 VSCode 配置中的临时文件（保留 .vscode 目录的配置文件，可选）
+# 忽略 VSCode 配置中的临时文件（保留核心配置）
 .vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json
 !.vscode/launch.json
 
-# 忽略 C++ 编译生成的可执行文件（如 a.out、main 等）
-*.out
-*.exe
-src/*[!cpp|!h|!hpp]  # 只保留源码文件，排除其他类型
+# 忽略 C++ 编译生成的可执行文件（覆盖所有目录）
+*.out          # 忽略 a.out 这类带后缀的可执行文件
+*.exe          # 忽略 Windows 可执行文件（远程 Linux 用不到，但留着不影响）
+**/src/*[!cpp|!h|!hpp]  # 关键修正：匹配所有子项目 src 目录下的非源码文件
+**/src/main    # 额外保险：明确忽略 src 目录下叫 main 的可执行文件（避免漏网）
 
 # 忽略系统临时文件
 .*.swp
